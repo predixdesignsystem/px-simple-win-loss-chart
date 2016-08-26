@@ -1,0 +1,161 @@
+<link rel="import" href="../polymer/polymer.html"/>
+<link rel="import" href="../px-simple-chart-common-behavior/px-simple-chart-common-behavior.html" />
+<link rel="import" href="css/px-simple-win-loss-chart-styles.html"/>
+
+<!--
+
+Use this component to visualize a series of positive & negative values as a bar chart. The series is represented by a sequence of horizontally aligned rectangle bars, the height of each proportionally representing a value.
+
+Positive values are represented above the x-axis in one color, and negative values are displayed below the axis, in a different color - these two colors are configurable. The width and height of the component are also configurable, or can be set to "auto" for a responsive layout.
+
+##### Usage
+
+    <px-simple-win-loss-chart chart-data="[1,-2,3]">
+    </px-simple-win-loss-chart>
+
+### Styling
+The following custom properties are available for styling:
+
+Custom property | Description | Default
+----------------|-------------|----------
+`--px-positive-fill` | Fill color for bars with positive values | `$dv-basic-green`
+`--px-negative-fill` | Fill color for bars with negative values | `$dv-basic-red`
+
+@element px-simple-win-loss-chart
+@blurb A simple win-loss chart for displaying in KPI dashboards
+@homepage index.html
+@demo demo.html
+-->
+<dom-module id="px-simple-win-loss-chart">
+    <script type="text/javascript" src="../es6-promise/es6-promise.min.js"></script>
+    <script type="text/javascript" src="../d3/d3.js"></script>
+    <style include="px-simple-win-loss-chart-styles"></style>
+    <template>
+        <svg class="px-simple-win-loss-chart-svg"></svg>
+    </template>
+</dom-module>
+
+<script>
+
+var defaultChartData = [2,6,-5,4,-3,2,7];
+
+    Polymer({
+
+        is: 'px-simple-win-loss-chart',
+
+        behaviors: [pxSimpleChartCommonBehavior],
+
+        minimumHeight: 10,
+        minimumWidth: 10,
+
+        /**
+         * Properties block, expose attribute values to the DOM via 'reflect'
+         *
+         * @property properties
+         * @type Object
+         */
+        properties: {
+            /**
+            * Width of the chart. Numeric or "auto".
+            * @prop width
+            * @type String
+            */
+            width: {
+                type: String,
+                value: "300"
+            },
+            /**
+            * Height of the chart. Numeric or "auto".
+            * @prop height
+            * @type String
+            */
+            height: {
+                type: String,
+                value: "50"
+            },
+            /**
+            * This attribute defines the series data to be charted. It needs to be passed in as an array.
+            * @prop chartData
+            * @type Array
+            */
+            chartData: {
+                type: Array,
+                observer: '_drawChart',
+                value: defaultChartData
+            }
+        },
+
+        _drawChartDebounced: function() {
+            var that = this;
+
+            if(this.chartData && this.chartData.length > 0) {
+              // clear the svg element
+              this._clearSVG(this.svg);
+              this._setDimensions();
+              var setSizesPromise = this._getSetSizesPromise();
+              setSizesPromise.then (function (){
+                that._setScales();
+                that._drawBars();
+                // add css class to svg elements using method from pxD3Util
+                that._addStyleScope(that.svg);
+              });
+            } else {
+              var timeout = setTimeout(function(){
+                that._drawChartDebounced();
+              }, 100);
+            }
+        },
+
+        _getSetSizesPromise: function() {
+            var that = this;
+            return new Promise (function (resolve, reject){
+                that.gridColumns = (that.chartData.length * 2) - 1;
+                that.gridWidth = Math.round(that.widthValue / that.gridColumns);
+                that.chartWidth = that.gridWidth * that.gridColumns;
+                that.widthRemainder = that.widthValue % that.gridWidth;
+                that.chartHeight = that.heightValue;
+                that.svg
+                        .attr("width", that.chartWidth)
+                        .attr("height", that.heightValue);
+                resolve(true);
+            });
+        },
+
+        _setScales: function() {
+            // no xscale necessary
+            this.yScale = d3.scale
+                .linear()
+                .domain([d3.min(this.chartData) > 0 ? 0 : d3.min(this.chartData), d3.max(this.chartData)])
+                .range([this.chartHeight, 0]);
+        },
+
+        _drawBars: function() {
+            var that = this;
+            this.chartData.forEach(function(value, i) {
+              var x = (that.gridWidth*2) * i,
+                  y = value < 0 ? that.yScale(0) : that.yScale(value),
+                  barHeight = Math.abs(that.yScale(value) - that.yScale(0)),
+                  colorClass = value < 0 ? "px-negative-fill" : "px-positive-fill"
+              that._drawBar(x, y, that.gridWidth, barHeight, colorClass);
+            });
+            this.svg
+                .append("line")
+                .attr("class", "px-simple-win-loss-chart bar-chart-bottom-line")
+                .attr("x1", 0)
+                .attr("y1", this.yScale(0))
+                .attr("x2", this.chartWidth)
+                .attr("y2", this.yScale(0));
+        },
+
+        _drawBar: function(x, y, width, height, colorClass) {
+            this.svg
+                .append("rect")
+                .attr("class", "bar " + colorClass)
+                .attr("x", x)
+                .attr("y", y)
+                .attr("width", width)
+                .attr("height", height)
+        }
+
+    });
+</script>

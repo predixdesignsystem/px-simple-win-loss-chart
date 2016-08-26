@@ -1,0 +1,131 @@
+<!doctype html>
+<html>
+   <head>
+       <meta charset="utf-8">
+       <meta name="viewport" content="width=device-width, initial-scale=1">
+       <link rel="shortcut icon" href="../favicon.ico" />
+       <title>px-simple-line-chart Demo</title>
+       <!-- Requires Webcomponents.js polyfill is provided by the page for browsers that don't support html imports -->
+       <script src="../bower_components/webcomponentsjs/webcomponents-lite.min.js"></script>
+       <script src="../web-component-tester/browser.js"></script>
+
+       <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+
+       <!-- Import custom element. Note: see comment about relative paths to dependencies in the *.html file referenced below -->
+       <link rel="import" href="../px-simple-win-loss-chart.html" />
+   </head>
+   <body>
+
+
+ <px-simple-win-loss-chart id="fixture1" chart-data="[1,-2,3]">
+</px-simple-win-loss-chart>
+
+<px-simple-win-loss-chart id="fixture2" height="200" chart-data="[1,-2,3]">
+</px-simple-win-loss-chart>
+
+<px-simple-win-loss-chart id="fixture3">&hearts;</px-simple-win-loss-chart>
+
+<div id="fixture_dimensions" style="width:300px; height:200px;">
+    <px-simple-win-loss-chart height="auto" width="auto" id="fixture4">&hearts;</px-simple-win-loss-chart>
+</div>
+
+  <script>
+
+  test('fixture exists', function(done) {
+   var fixture = document.getElementById("fixture1");
+
+   setTimeout(function(){
+
+   assert.equal(getComputedStyle(document.querySelector('rect')).visibility,"visible");
+   done();
+   },1000);
+
+ });
+
+ test('fixture2 height is 200', function(done) {
+   var fixture = document.getElementById("fixture2");
+
+
+  assert.equal(getComputedStyle(fixture.querySelector('svg')).height,"200px");
+   done();
+
+ });
+
+ test('fixture1 SVG element has default width', function(done) {
+   var fixture = document.getElementById("fixture1");
+
+   assert.equal(getComputedStyle(fixture.querySelector('svg')).width,"300px");
+   done();
+
+ });
+
+ test('fixture1 SVG element has default height', function(done) {
+   var fixture = document.getElementById("fixture1");
+
+   assert.equal(getComputedStyle(fixture.querySelector('svg')).height,"50px");
+   done();
+
+ });
+
+ test('fixture3 SVG element has default width', function(done) {
+   var fixture = document.getElementById("fixture1");
+
+   assert.equal(getComputedStyle(fixture.querySelector('svg')).width,"300px");
+   done();
+
+ });
+
+ test('fixture3 count all rectangle in chart equals the data array', function(done) {
+   var fixture = document.getElementById("fixture3");
+   var svg = fixture.querySelector('svg');
+
+   assert.equal(svg.querySelectorAll('rect').length,"7");
+   done();
+
+ });
+
+
+ test('fixture4 SVG element has assigned width', function(done) {
+   var fixture = document.getElementById("fixture4");
+
+   assert.equal(getComputedStyle(fixture.querySelector('svg')).width,"299px");
+   done();
+
+ });
+
+ test('fixture4 SVG element has assigned height', function(done) {
+   var fixture = document.getElementById("fixture4");
+
+   assert.equal(getComputedStyle(fixture.querySelector('svg')).height,"200px");
+   done();
+
+ });
+
+ test('fixture4 test for resize chart by height', function(done) {
+   var fixture = document.getElementById("fixture4");
+
+   document.getElementById('fixture_dimensions').style.height = '270px';
+   window.dispatchEvent(new Event('resize'));
+   setTimeout(function(){
+   assert.equal(getComputedStyle(fixture.querySelector('svg')).height,"270px");
+   done();
+   },1000);
+
+ });
+
+ test('fixture4 test for resize chart by width', function(done) {
+   var fixture = document.getElementById("fixture4");
+
+
+   document.getElementById('fixture_dimensions').style.width = '400px';
+   window.dispatchEvent(new Event('resize'));
+   setTimeout(function(){
+   assert.equal(getComputedStyle(fixture.querySelector('svg')).width,"403px");
+   done();
+ },1000);
+
+ });
+  </script>
+
+       </body>
+       </html>
