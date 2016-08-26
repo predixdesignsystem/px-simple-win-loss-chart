@@ -1,6 +1,6 @@
 {
   "name": "px-simple-win-loss-chart",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "main": [
     "px-simple-win-loss-chart.html"
   ],
