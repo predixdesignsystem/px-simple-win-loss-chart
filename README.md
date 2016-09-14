@@ -1,6 +1,6 @@
 #px-simple-win-loss-chart [![Build Status](https://travis-ci.org/PredixDev/px-simple-win-loss-chart.svg?branch=master)](https://travis-ci.org/PredixDev/px-simple-win-loss-chart)
 
-[![px-simple-win-loss-chart demo](https://predixdev.github.io/px-simple-win-loss-chart/px-simple-win-loss-chart/px-simple-win-loss-chart.png)](https://github.com/PredixDev/px-simple-win-loss-chart)
+[![px-simple-win-loss-chart demo](px-simple-win-loss-chart.png?raw=true)](https://github.com/PredixDev/px-simple-win-loss-chart)
 
 ## Overview
 
