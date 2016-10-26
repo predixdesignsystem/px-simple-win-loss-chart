@@ -1,3 +1,7 @@
+v0.1.2
+==================
+* Updated dependencies
+
 v0.0.3
 ==================
 * Added auto_ghp
