@@ -93,7 +93,10 @@
                   <div>
                     <px-demo-snippet
                       element-properties={{item}}
-                      element-name="px-simple-win-loss-chart">
+                      element-name="px-simple-win-loss-chart"
+                      scripts-includes="[[scriptsIncludes]]"
+                      links-includes="[[linksIncludes]]"
+                      polygit-includes="[[polygitIncludes]]">
                     </px-demo-snippet>
                   </div>
                 </div>
@@ -149,6 +152,8 @@
           template.selected = "0";
           template.optionsArray = optionsArray;
           template.indexPlusOne = indexPlusOne;
+
+          template.scriptsIncludes = ['https://d3js.org/d3.v3.min.js'];
 
     });
   </script>

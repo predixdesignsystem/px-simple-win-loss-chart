@@ -1,3 +1,6 @@
+v0.1.4
+==================
+* fixed code pen by importing v3 of d3 to codepen
 
 v0.1.3
 ==================
