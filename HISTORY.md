@@ -1,3 +1,8 @@
+
+v1.0.1
+==================
+* changing Gruntfile.js to gulpfile.js
+
 v1.0.0
 ==================
 * updated style variables for theming

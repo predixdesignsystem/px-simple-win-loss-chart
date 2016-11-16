@@ -1,13 +1,13 @@
 {
     "name": "px-simple-win-loss-chart",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "main": [
         "px-simple-win-loss-chart.html"
     ],
     "ignore": [
         ".*",
         "npm-debug.log",
-        "Gruntfile.js",
+        "gulpfile.js",
         "sass",
         "bower_components",
         "node_modules",
