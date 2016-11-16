@@ -23,17 +23,5 @@ Predix branding rules go in px-simple-win-loss-chart-predix.scss, not in this fi
   shape-rendering: crispEdges;
 }
 .px-simple-win-loss-chart-svg {
-    background: white;
     margin: 0;
-}
-.legend-text {
-    font-family: sans-serif;
-    color: #000000;
-    font-size: 12px;
-}
-.px-positive-fill {
-    fill: var(--px-positive-fill, $dv-basic-green);
-}
-.px-negative-fill {
-    fill: var(--px-positive-fill, $dv-basic-red);
 }

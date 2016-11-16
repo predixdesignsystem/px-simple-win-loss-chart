@@ -1,3 +1,8 @@
+v1.0.0
+==================
+* updated style variables for theming
+* separated sketch and predix styles
+
 v0.1.4
 ==================
 * fixed code pen by importing v3 of d3 to codepen
