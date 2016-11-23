@@ -1,6 +1,6 @@
 {
     "name": "px-simple-win-loss-chart",
-    "version": "1.0.4",
+    "version": "1.0.5",
     "main": [
         "px-simple-win-loss-chart.html"
     ],
@@ -29,7 +29,7 @@
     },
     "devDependencies": {
         "px-starter-kit-design": "~0.6.0",
-        "px-slider": "~0.6.0",
+        "px-slider": "^0.7.5",
         "px-spacing-design": "~0.3.8",
         "px-buttons-design": "~0.4.26",
         "px-forms-design": "#~0.3.15",
