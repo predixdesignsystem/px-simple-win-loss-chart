@@ -7,6 +7,7 @@ branches:
   except:
   - gh-pages
 addons:
+  firefox: latest
   apt:
     sources:
     - google-chrome
@@ -21,14 +22,9 @@ script:
 - xvfb-run wct --skip-plugin sauce
 - if [ "${TRAVIS_PULL_REQUEST}" = "false" ]; then wct --plugin sauce --skip-plugin
   local; fi
-env:
-  global:
-  - secure: jJXdiRhqy7CmLH8s5LOx+ETpgTXVoj9eW2AneYsARMuPRDyPzM2vkOod1DXbU7JwmE3/q6/9ZVKaMe2Npeo9Jy+qBTeA85+XBIX8d0Mqi8J4YGr3WAQxnaAdzigka+hy4uCiR9+58Urvx++xoBF43FxvlkclU3YcAojKB05TRitGwLkPtPmxSLzn3JFLujlJKypJDesNjvgV0jgEBa9cm/WAc7AUNxtExZ2XjjilahqeeTMqzKPgJ1Zkf51SIjtCTABz6TLNoqF9MdEm2txb02SLcIZb+r4dqGK1WTwcGM2dg71/zqLekgsxsD7roYIZhvqO1ZPHF0VcEv6Q0pd1B3PeBu31X5yRAmkcN+48W8Jvh03ethEUuz5yyyCKcRtrhdM6HmY2idNI/ITMwXlxPkVNphWpd6sSAyrYTFlV2ui3vVlvBag67CYrh6jWuzR2hD9iubp30pbH5AiKeFyKTtTjVfqQrvSg8O0WDeZl0EViiP+FsPQkIrhRO8zsCYQTMiqciKdU9aF2xdP9bTesH7+pCf+R6vgM7sJ6VvDWAUFWk54Lr+iWJ6kPzejDRLrYBs301ot/sf4xiM0pb/3Dyw8kGzQn8hIqon4fpY2Iq2b/K1UqUan9R86cHK0d9Jb4i+l+BDqfKZoyxXDNy3ed6OD1H3yemTEMXdva6q9ua18=
-  - secure: NrHI7VcvXKBk977qrgyEo3YhoFft7IJpERRliNqWQcAmEAJt3F+JEdkbpDoc6chjwXhMuRFWe3BXPgT/Sg6cafHNeDu4vMYVQUDB/BVC3Wwnxo3CTVIWKkgGxcPAcyz6pA1d3WWiaoITndfhA0N1wbP738pVNKJBumHJeeeVKW9exi76PWtW77uzIvSXJCxdDV9yaWet7+mNmX4QW/GYfykWKe613TT/hnlUNVL6IxPQNFmKKvWBNtLjkHztVnIUNJMfDPjrdI7hMxyb+2XeVdzPWjXUiqT+SW0oU3YSEa27HcESWalIKU/Rd/9Mq7c8oyt/rL3Tj5BmoTJ8s+JcQk5VuZWGhd4sYcPxoCDICNU7GLp1gJjw6Kt5xcMW6oYdfTG24MrHI7xstfXhD5NJ1FCpEhZWwRC/RVeI3W/kqfaBCi2g69FBrgolHkkJ9VjTI0lLT34VET7bSuYrBW4V1PNoH174yqekIHYf3dXR68hyGxv+/A3zz29VER/BQ4KpI298uzoMfASB2qpct5qWUP3BkUl0oUH6dBRjdpiguzfWOL935iAGYWTQ5Jfgan8zeBVNhaLuZbrdZriYocTwrjqhm6v7MKyLAnAdsrpWsl9dgZhjjQWAhm+rLCiDDO2/dNOIuuVPKmbYTaqKCFoe3wmQfbdZSq0t1jf6w50+KvU=
-before_install:
-- if [ "${TRAVIS_PULL_REQUEST}" = "false" ]; then openssl aes-256-cbc -k "$password"
-  -in id_rsa.enc -out deploy_key -d; fi
 after_success:
+- if [ "${TRAVIS_PULL_REQUEST}" = "false" ]; then openssl aes-256-cbc -k "$DEPLOYSECRET"
+  -in deploy.enc -out deploy_key -d; fi
 - cd $TRAVIS_BUILD_DIR/scripts
 - chmod 755 ghp.sh
-- ./ghp.sh
+- "./ghp.sh"
