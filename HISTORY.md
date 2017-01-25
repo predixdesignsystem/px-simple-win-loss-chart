@@ -1,3 +1,7 @@
+v1.1.4
+==================
+* Update bower dependency
+
 v1.1.3
 ==================
 * Update colors design to pick up new colors
