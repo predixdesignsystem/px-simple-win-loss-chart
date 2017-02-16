@@ -21,37 +21,18 @@ common/abstract rules go in px-simple-win-loss-chart-sketch.scss, not in this fi
 
 // Settings
 @import "px-colors-design/_settings.colors.scss";
-
 @import 'px-simple-win-loss-chart-sketch.scss';
 
 .bar-chart-bottom-line {
-    stroke: $gray9;
+    stroke: var(--px-win-loss-border-color, $gray9);
+    stroke-width: 2;
 }
-
-.bar-color-0 {
-    fill: $dv-basic-blue;
+.px-simple-win-loss-chart-svg {
+    background: var(--px-win-loss-background-color, $white);
 }
-.bar-color-1 {
-    fill: $dv-basic-orange;
+.px-positive-fill {
+    fill: var(--px-win-loss-positive-fill-color, $dv-basic-green);
 }
-.bar-color-2 {
-    fill: $dv-basic-green;
-}
-.bar-color-3 {
-    fill: $dv-basic-pink;
-}
-.bar-color-4 {
-    fill: $dv-basic-brown;
-}
-.bar-color-5 {
-    fill: $dv-basic-purple;
-}
-.bar-color-6 {
-    fill: $dv-basic-yellow;
-}
-.bar-color-7 {
-    fill: $dv-basic-red;
-}
-.bar-color-8 {
-    fill: $dv-basic-gray;
+.px-negative-fill {
+    fill: var(--px-win-loss-negative-fill-color, $dv-basic-red);
 }

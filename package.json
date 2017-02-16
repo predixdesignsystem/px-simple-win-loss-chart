@@ -2,7 +2,7 @@
     "name": "px-simple-win-loss-chart",
     "author": "General Electric",
     "description": "A simple win-loss chart for displaying in KPI dashboards",
-    "version": "0.1.4",
+    "version": "1.1.4",
     "private": true,
     "extName": null,
     "repository": {
