@@ -96,15 +96,6 @@
 
     },
 
-    attached: function(){
-      var counter = 0;      
-      this.addEventListener('px-simple-win-loss-chart-files-changed', function(evt) {
-          counter++; 
-        var span = this.$$('#counter');
-        span.innerHTML = 'The <strong>px-simple-win-loss-chart-files-changed</strong> event has fired <strong>' + counter + '</strong> time(s)';
-      });
-    },
-
     /**
      * A reference for `this.props`. Read the documentation there.
      */
