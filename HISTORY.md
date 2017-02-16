@@ -1,5 +1,9 @@
 v1.1.4
 ==================
+* updated to new demo using px-demo
+
+v1.1.4
+==================
 * Update bower dependency
 
 v1.1.3
