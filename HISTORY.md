@@ -1,3 +1,7 @@
+v1.1.6
+==================
+* fixed behavior import
+
 v1.1.5
 ==================
 * updated to new demo using px-demo
