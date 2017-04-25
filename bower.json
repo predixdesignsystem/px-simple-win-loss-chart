@@ -5,6 +5,7 @@
     "px-simple-win-loss-chart.html"
   ],
   "ignore": [
+    "*.enc",
     ".*",
     "npm-debug.log",
     "gulpfile.js",
