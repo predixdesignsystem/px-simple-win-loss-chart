@@ -25,7 +25,7 @@ common/abstract rules go in px-simple-win-loss-chart-sketch.scss, not in this fi
 
 .bar-chart-bottom-line {
     stroke: var(--px-win-loss-border-color, $gray9);
-    stroke-width: 2;
+    stroke-width: 1;
 }
 .px-simple-win-loss-chart-svg {
     background: var(--px-win-loss-background-color, $white);

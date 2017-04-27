@@ -1,3 +1,8 @@
+v1.1.7
+==================
+* reduce weight of axis line
+* fix dependencies
+
 v1.1.6
 ==================
 * fixed behavior import
