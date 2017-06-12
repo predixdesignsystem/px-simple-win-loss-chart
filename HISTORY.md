@@ -1,3 +1,8 @@
+v2.0.0
+==================
+* update dependencies for redesign
+* component redesign, remove default styles
+
 v1.1.7
 ==================
 * reduce weight of axis line
