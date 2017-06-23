@@ -30,12 +30,13 @@
   "dependencies": {
     "polymer": "^1.6.1",
     "d3": "~3.5.6",
-    "px-simple-chart-common-behavior": "^1.6.0",
+    "px-simple-chart-common-behavior": "^2.0.0",
     "es6-promise": "3.3.1",
     "iron-ajax": "^1.4.3"
   },
   "devDependencies": {
-    "px-starter-kit-design": "^1.0.0",
+    "px-normalize-design": "^1.0.0",
+    "px-box-sizing-design": "^1.0.0",
     "px-demo": "^2.0.0",
     "px-theme": "^3.0.0"
   }
