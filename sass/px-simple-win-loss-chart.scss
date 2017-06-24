@@ -28,14 +28,12 @@
   shape-rendering: crispEdges;
 }
 .px-simple-win-loss-chart-svg {
-    margin: 0;
+  background: var(--px-win-loss-background-color, white);
+  margin: 0;
 }
 .bar-chart-bottom-line {
     stroke: var(--px-win-loss-border-color, black);
     stroke-width: 1;
-}
-.px-simple-win-loss-chart-svg {
-    background: var(--px-win-loss-background-color, white);
 }
 .px-positive-fill {
     fill: var(--px-win-loss-positive-fill-color, green);
