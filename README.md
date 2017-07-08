@@ -1,7 +1,5 @@
 #px-simple-win-loss-chart [![Build Status](https://travis-ci.org/PredixDev/px-simple-win-loss-chart.svg?branch=master)](https://travis-ci.org/PredixDev/px-simple-win-loss-chart)
 
-[![px-simple-win-loss-chart demo](px-simple-win-loss-chart.png?raw=true)](https://github.com/PredixDev/px-simple-win-loss-chart)
-
 ## Overview
 
 px-simple-win-loss-chart is a Predix UI component.
