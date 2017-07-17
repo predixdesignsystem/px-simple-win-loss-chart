@@ -1,10 +1,8 @@
-#px-simple-win-loss-chart [![Build Status](https://travis-ci.org/PredixDev/px-simple-win-loss-chart.svg?branch=master)](https://travis-ci.org/PredixDev/px-simple-win-loss-chart)
+# px-simple-win-loss-chart [![Build Status](https://travis-ci.org/PredixDev/px-simple-win-loss-chart.svg?branch=master)](https://travis-ci.org/PredixDev/px-simple-win-loss-chart)
 
 ## Overview
 
-px-simple-win-loss-chart is a Predix UI component.
-
-Use this component to visualize a series of positive & negative values as a bar chart. The series is represented by a sequence of horizontally aligned rectangle bars, the height of each proportionally representing a value.
+Px-simple-win-loss-chart is a Predix UI component used to visualize a series of positive & negative values as a bar chart. The series is represented by a sequence of horizontally aligned rectangle bars, the height of each proportionally representing a value.
 
 Positive values are represented above the x-axis in one color, and negative values are displayed below the axis, in a different color - these two colors are configurable. The width and height of the component are also configurable, or can be set to "auto" for a responsive layout.
 
