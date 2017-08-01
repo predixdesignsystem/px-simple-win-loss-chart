@@ -1,3 +1,7 @@
+v2.0.1
+==================
+* fix description on demo page
+
 v2.0.0
 ==================
 * update dependencies for redesign
