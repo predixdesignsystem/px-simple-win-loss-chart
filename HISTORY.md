@@ -1,3 +1,7 @@
+v2.0.3
+==================
+* add device flags
+
 v2.0.2
 ==================
 * runtime theming for demo
