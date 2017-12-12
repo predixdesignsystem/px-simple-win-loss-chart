@@ -1,6 +1,6 @@
 {
   "name": "px-simple-win-loss-chart",
-  "version": "2.0.3",
+  "version": "2.1.0",
   "main": [
     "px-simple-win-loss-chart.html"
   ],
@@ -28,19 +28,33 @@
     "web-components"
   ],
   "dependencies": {
-    "polymer": "^1.9.0",
-    "d3": "~3.5.6",
-    "px-simple-chart-common-behavior": "^2.0.0",
+    "polymer": "#1.9 - 2",
+    "d3": "^3.0.0",
+    "px-simple-chart-common-behavior": "^2.1.1",
     "es6-promise": "3.3.1",
     "iron-ajax": "^2.0.0"
   },
   "devDependencies": {
     "px-normalize-design": "^1.0.0",
     "px-box-sizing-design": "^1.0.0",
-    "px-demo": "^2.0.0",
-    "px-theme": "^3.0.0"
+    "px-demo": "^3.0.0",
+    "px-theme": "^3.0.0",
+    "web-component-tester": "^6.4.0"
   },
   "resolutions": {
-    "webcomponentsjs": "^0.7.24"
+    "webcomponentsjs": "^1.0.0"
+  },
+  "variants": {
+    "1.x": {
+      "dependencies": {
+        "polymer": "^1.9.0"
+      },
+      "devDependencies": {
+        "web-component-tester": "^5.0.0"
+      },
+      "resolutions": {
+        "webcomponentsjs": "^0.7.0"
+      }
+    }
   }
 }
